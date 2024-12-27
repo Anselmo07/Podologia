@@ -8,7 +8,7 @@
 body {
   font-family: Arial, sans-serif; /* Establece una fuente base */
   line-height: 1.6; /* Mejora la legibilidad */
-  background-color: #B0C4DE; /* Color platinado de fondo */
+  background-color: #f9f9f9;
   color: black; /* Color del texto */
 }
 
@@ -28,7 +28,7 @@ a {
 }
 
 ul, ol {
-  list-style: none; /* Elimina los estilos de listas predeterminados */
+  list-style: none;
 }
 
 /* Estilos para botones */

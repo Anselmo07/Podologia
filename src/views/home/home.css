@@ -2,7 +2,7 @@
     position: relative;
     display: inline-block;
     text-align: center;
-    margin: 0;
+    /* margin: -10px; */
     padding: 0;
     width:100%;
 }
@@ -14,16 +14,16 @@
 }
 
 h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: absolute; /* Necesario para centrar el texto dentro del contenedor */
+    top: 50%; /* Posiciona el elemento en el centro vertical */
+    left: 50%; /* Posiciona el elemento en el centro horizontal */
+    transform: translate(-50%, -50%); /* Ajusta el centro exacto */
     color: black;
-    text-align: center;
     font-size: 32px;
     font-weight: bold;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    z-index: 1;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Agrega un efecto de sombra al texto */
+    z-index: 1; /* Asegura que el texto esté encima de la imagen */
+    text-align: center; /* Centra el texto si tiene varias líneas */
 }
 
 .section-home{
@@ -32,21 +32,28 @@ h1 {
     flex-direction: column;
     text-align: center;
     background-color: #f9f9f9;
-    /* border: 1px solid black; */
+}
+
+.section-home h2{
+    margin-top: 20px;
+    color: rgb(34, 82, 185);
+    font-size: 48px;
 }
 
 .home-h2{
     display: flex;
     flex-direction: row;
-    margin: 10px;
-    /* border: 1px solid black; */
+    margin-top: 10px;
+    margin-bottom:30PX ;
 }
 
 .home-h2 p {
-    margin: 55px;
+    margin: 10px;
+    padding: 0 25px 20px 25px;
     text-align: center;
     align-items: center;
-    /* border: 1px solid black; */
+    font-size: 26px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .podology-image {
@@ -54,6 +61,30 @@ h1 {
     height: 100%;
     max-width: 500px;
     display: block;
-    /* border: 1px solid black; */
+}
+
+.home-h3{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    text-align:start;
+    background-color: #f9f9f9;
+    padding: 2rem ;
+    margin: 20px;
+}
+
+h2{
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.home-h3 li{
+    font-size: 22px;
+    list-style: disc;
+    background-color: #f9f9f9;
+}
+
+.home-h3 img{
+    margin-left:4rem ;
 }
 
