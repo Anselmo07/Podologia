@@ -1,0 +1,45 @@
+.about{
+    text-align: initial;
+    font-size: 23px;
+    margin:  2% 10% 0 10%;
+}
+
+.about-h2{
+    margin: 20px 0 20px 0;
+    color: rgb(34, 82, 185);
+    font-size: 48px;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; /* Asegura que los elementos hijos tengan la misma altura */
+    /* border: 1px solid black; */
+    height: auto; /* Se ajusta según el contenido */
+}
+
+.about-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente el texto */
+    width: 50%; /* Ocupa la mitad del ancho */
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: justify; /* Justifica el texto */
+    height: 100%;
+}
+
+.about-img {
+    width: 50%; /* Ocupa la otra mitad del ancho */
+    display: flex;
+    align-items: center; /* Centra verticalmente la imagen */
+    justify-content: center;
+}
+
+.about-img img {
+    max-width: 100%; /* Limita el ancho de la imagen al contenedor */
+    height: 27rem;
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+    aspect-ratio: 1; /* Define proporción uniforme para imágenes cuadradas */
+}
+
