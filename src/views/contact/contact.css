@@ -1,0 +1,24 @@
+
+.conctact-h2{
+    margin-top: 5%;
+    color: rgb(34, 82, 185);
+    font-size: 48px;
+}
+
+.card-contact {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 2rem ;
+    margin: 0 30% 5% 30%;
+    height: 100%;
+    padding: 5px;
+    font-size: 22px;
+}
+
+.card-contact img {
+    height: 2rem;
+    width: auto;
+}
