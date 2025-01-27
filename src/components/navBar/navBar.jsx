@@ -1,13 +1,25 @@
-import "./navBar.css"
+import { useState } from "react";
+import "./navBar.css";
+import pies from "../../assets/pies.png";
 
 const NavBar = () => {
-    return(
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    return (
         <nav className="NavBar">
+            <div className="imgNavbar">
+                <img src={pies} alt="Logo" />
+            </div>
+
+            {/* Botón para mobile */}
+            <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+                ☰
+            </div>
+
             <div className="container">
-                <ul>
+                <ul className={menuOpen ? "active" : ""}>
                     <li><a href="#home">HOME</a></li>
                     <li><a href="#about">SOBRE MI</a></li>
-                    <li><a href="#estudio">ESTUDIOS</a></li>
                     <li><a href="#contact">CONTACTO</a></li>
                 </ul>
             </div>

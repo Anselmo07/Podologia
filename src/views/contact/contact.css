@@ -1,4 +1,8 @@
 
+.containerContact{
+    padding-bottom: 2%;
+}
+
 .conctact-h2{
     margin-top: 5%;
     color: rgb(34, 82, 185);
@@ -12,7 +16,7 @@
     text-align: center;
     border: 1px solid black;
     border-radius: 2rem ;
-    margin: 0 30% 5% 30%;
+    margin: 1.5% 30% 5% 30%;
     height: 100%;
     padding: 5px;
     font-size: 22px;
@@ -21,4 +25,36 @@
 .card-contact img {
     height: 2rem;
     width: auto;
+}
+
+@media (max-width: 768px) {
+    .conctact-h2 {
+        font-size: 32px; /* Reduce el tamaño del título */
+        text-align: center;
+        margin-top: 8%;
+    }
+
+    .card-contact {
+        margin: 3% 10%; /* Reduce el margen lateral para ocupar más espacio */
+        font-size: 18px; /* Reduce el tamaño del texto */
+        padding: 10px;
+    }
+}
+
+/* Pantallas más pequeñas (480px) */
+@media (max-width: 480px) {
+    .conctact-h2 {
+        font-size: 28px;
+        margin-top: 10%;
+    }
+
+    .card-contact {
+        margin: 5% 5%;
+        font-size: 16px;
+        padding: 15px;
+    }
+
+    .card-contact img {
+        height: 1.5rem;
+    }
 }

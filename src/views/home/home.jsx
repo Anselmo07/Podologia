@@ -39,9 +39,6 @@ const Home = () => {
                     </ul>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmUp5ZB5uKG0YHRu5XxhrkgfRhOH4czwBhWA&s" alt="" />
                 </div>
-                <div className="divImg">
-                    <img src="https://img.freepik.com/fotos-premium/campo-flores-verano-salvaje-azul-primer-plano-fondo-paisaje-verano-hermosas-flores-banner-extra-ancho-ia-generativa_427877-1693.jpg" alt="" />
-                </div>
 
             </section>
         </div>

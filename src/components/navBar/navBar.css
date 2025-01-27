@@ -1,54 +1,102 @@
 .NavBar {
-    width: 100%; /* Ocupa todo el ancho de la pantalla */
-    background-color: rgb(34, 82, 185); /* Fondo negro */
-    position: sticky; /* Pegado al hacer scroll */
-    top: 0; /* Siempre arriba */
-    z-index: 1000; /* Por encima de otros elementos */
+    width: 100%;
+    background-color: rgb(34, 82, 185);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     display: flex;
-    justify-content: flex-end; /* Centra el contenedor horizontalmente */
-    padding-right:15px ;
+    justify-content: space-between; /* Distribuye los elementos */
+    align-items: center;
+    padding: 10px 20px;
 }
 
+/* Contenedor del logo */
+.imgNavbar img {
+    width: 50px;
+    height: auto;
+}
+
+/* Contenedor del menú */
 .NavBar .container {
-    width: 60%; /* 60% del ancho total, dejando 20% a cada lado */
     display: flex;
-    justify-content: flex-end; /* Alinea los elementos a la derecha del contenedor */
-    align-items: center; /* Centra verticalmente los elementos */
-    padding: 10px 0; /* Espaciado interno vertical */
+    align-items: center;
 }
 
-.NavBar h1 {
-    color: white;
-    font-size: 24px;
-}
-
+/* Lista de navegación en desktop */
 .NavBar ul {
     display: flex;
     list-style: none;
-    text-decoration: none;
     margin: 0;
     padding: 0;
 }
 
 .NavBar li {
     margin-left: 20px;
+}
+
+.NavBar li a {
     color: white;
     font-size: 18px;
-    cursor: pointer;
-    list-style: none;
     text-decoration: none;
 }
 
-.NavBar li:hover {
+.NavBar li:hover a {
     color: whitesmoke;
 }
 
-.NavBar li a{
-    margin-left: 20px;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    list-style: none;
-    text-decoration: none;
-    color: white;
+/* === ADAPTACIÓN A MOBILE === */
+@media (max-width: 768px) {
+    .NavBar {
+        position: relative;
+    }
+
+    /* Menú hamburguesa */
+    .menu-toggle {
+        display: block; /* Solo en móvil */
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        position: absolute;
+        right: 20px; /* Lo alinea a la derecha */
+        top: 15px;
+    }
+
+    /* Oculta el menú por defecto */
+    .NavBar ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgb(34, 82, 185);
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    /* Muestra el menú cuando esté activo */
+    .NavBar ul.active {
+        display: flex;
+    }
+
+    .NavBar li {
+        margin: 10px 0;
+    }
+}
+
+/* Pantallas más pequeñas (480px) */
+@media (max-width: 480px) {
+    .imgNavbar img {
+        width: 40px;
+    }
+
+    .NavBar li a {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none; /* Oculta el icono en pantallas grandes */
+    }
 }

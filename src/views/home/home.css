@@ -1,9 +1,10 @@
+/* Estilos generales */
 .container-home {
     position: relative;
     display: inline-block;
     text-align: center;
     padding: 0;
-    width:100%;
+    width: 100%;
 }
 
 .imagenPo {
@@ -13,19 +14,19 @@
 }
 
 h1 {
-    position: absolute; /* Necesario para centrar el texto dentro del contenedor */
-    top: 50%; /* Posiciona el elemento en el centro vertical */
-    left: 50%; /* Posiciona el elemento en el centro horizontal */
-    transform: translate(-50%, -50%); /* Ajusta el centro exacto */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: black;
     font-size: 32px;
     font-weight: bold;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Agrega un efecto de sombra al texto */
-    z-index: 1; /* Asegura que el texto esté encima de la imagen */
-    text-align: center; /* Centra el texto si tiene varias líneas */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    text-align: center;
 }
 
-.section-home{
+.section-home {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -34,24 +35,23 @@ h1 {
     margin-top: 7%;
 }
 
-.section-home h2{
+.section-home h2 {
     margin-top: 20px;
     color: rgb(34, 82, 185);
     font-size: 48px;
 }
 
-.home-h2{
+.home-h2 {
     display: flex;
     flex-direction: row;
     margin-top: 10px;
-    margin-bottom:30PX ;
+    margin-bottom: 30px;
 }
 
 .home-h2 p {
     margin: 10px;
     padding: 0 25px 20px 25px;
     text-align: center;
-    align-items: center;
     font-size: 26px;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -63,90 +63,124 @@ h1 {
     display: block;
 }
 
-.home-h3{
+.home-h3 {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     flex-direction: row;
-    text-align:start;
-    padding: 2rem ;
+    text-align: start;
+    padding: 2rem;
     margin: 20px 0 0 20%;
     border: 1px solid black;
     border-radius: 2rem 0 0 2rem;
     background-color: rgb(67, 152, 201);
 }
 
-.home-h4{
+.home-h4 {
     display: flex;
     justify-content: start;
     flex-direction: row;
-    text-align:start;
-    padding: 2rem ;
+    text-align: start;
+    padding: 2rem;
     margin: 3% 20% 0 0;
     border: 1px solid black;
     border-radius: 0 2rem 2rem 0;
     background-color: rgb(67, 152, 201);
 }
 
-h2{
+h2 {
     text-align: center;
     font-size: 2.5rem;
 }
 
-.home-h3 li{
+.home-h3 li {
     font-size: 22px;
     list-style: disc;
     background-color: rgb(67, 152, 201);
 }
 
-.home-h4 li{
+.home-h4 li {
     font-size: 22px;
     list-style: disc;
     background-color: rgb(67, 152, 201);
 }
 
-.home-h3 img{
-    margin-left:4rem ;
+.home-h3 img, .home-h4 img {
+    margin-left: 4rem;
     border: 1px solid black;
 }
 
-.home-h4 img{
-    margin-left:4rem ;
-    border: 1px solid black;
-}
-
-.divImg img{
+.divImg img {
     margin-top: 3%;
     height: 250px;
     width: 100%;
 }
 
-/* Archivo CSS */
-@keyframes slideIn {
-    from {
-    transform: translateX(-100%);
-    opacity: 0;
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .section-home {
+        margin-top: 20%;
     }
-    to {
-    transform: translateX(0);
-    opacity: 1;
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .home-h2 {
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+
+    .home-h2 p {
+        font-size: 22px;
+        padding: 0 10px;
+    }
+
+    
+    .home-h3, .home-h4 {
+        flex-direction: column;
+        margin: 20px 0;
+        padding: 1rem;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        background-color: white;
+        border: none;
+    }
+
+    .home-h3 li, .home-h4 li {
+        font-size: 16px;
+        margin-left: 5%;
+        background-color: white;
+    }
+
+    .home-h3 img, .home-h4 img {
+        margin-left: 0;
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .divImg img {
+        height: auto;
+        width: 100%;
     }
 }
 
-@keyframes slideFromRight {
-    from {
-      transform: translateX(100%); /* Empieza fuera de la pantalla a la derecha */
-      opacity: 0; /* Inicialmente invisible */
+/* Estilos para dispositivos pequeños */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
     }
-    to {
-      transform: translateX(0); /* Termina en su posición original */
-      opacity: 1; /* Aparece completamente */
+
+    .home-h2 p {
+        font-size: 18px;
     }
-}
 
-.home-h2 , .home-h4 {
-    animation: slideIn 1s ease-out forwards; /* Animación al entrar */
-}
+    .home-h3 li, .home-h4 li {
+        font-size: 16px;
+    }
 
-.home-h3 {
-    animation: slideFromRight 1s ease-out; /* Cambiamos la animación */
+    .home-h3, .home-h4 {
+        padding: 1rem;
+        margin: 10px 0;
+    }
 }
