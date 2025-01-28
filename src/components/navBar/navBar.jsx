@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./navBar.css";
-import pies from "../../assets/pies.png";
+import pie from "../../assets/pie.png";
 
 const NavBar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -8,7 +8,7 @@ const NavBar = () => {
     return (
         <nav className="NavBar">
             <div className="imgNavbar">
-                <img src={pies} alt="Logo" />
+                <img src={pie} alt="Logos" />
             </div>
 
             <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
