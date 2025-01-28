@@ -3,7 +3,7 @@ import mifoto from "./../../assets/mifoto.jpeg"
 
 const About = () => {
     return(
-        <section id="About" className="about">
+        <section id="about" className="about">
 
             <h2 className="about-h2">SOBRE MI</h2>
 
@@ -17,7 +17,7 @@ const About = () => {
                     </p>    
                 </div>
                 <div className="about-img">
-                    <img src={mifoto} alt="" />
+                    <img src={mifoto} alt="Foto de Perfil" />
                 </div>
             </div>
 

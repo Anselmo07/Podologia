@@ -3,7 +3,7 @@ import "./home.css"
 const Home = () => {
     return (
         <div >
-            <div className="container-home">
+            <div className="container-home" id="home">
             <h1> PODOLOGÍA CLINICA</h1>
             <img src="https://statics-cuidateplus.marca.com/cms/2022-11/earthing-caminar-descalzo.jpg" alt="Pies" className="imagenPo" />
             </div>
@@ -16,7 +16,6 @@ const Home = () => {
                     y disfrutar de cada paso.
                     </p>
                 
-                {/* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwG-XNIsdXvMm7M6iKb-TFQP8_OtpslBOBQQ&s" alt="Pies relajados y saludables" className="podology-image" /> */}
                 </div>
             </section>
             <section >

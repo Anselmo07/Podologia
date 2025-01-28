@@ -1,4 +1,4 @@
-/* Estilos generales */
+
 .container-home {
     position: relative;
     display: inline-block;
@@ -115,7 +115,7 @@ h2 {
     width: 100%;
 }
 
-/* Estilos para dispositivos móviles */
+
 @media (max-width: 768px) {
     .section-home {
         margin-top: 20%;
@@ -165,7 +165,7 @@ h2 {
     }
 }
 
-/* Estilos para dispositivos pequeños */
+
 @media (max-width: 480px) {
     h1 {
         font-size: 20px;

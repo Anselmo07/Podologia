@@ -11,7 +11,6 @@ const NavBar = () => {
                 <img src={pies} alt="Logo" />
             </div>
 
-            {/* Botón para mobile */}
             <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
                 ☰
             </div>

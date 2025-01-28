@@ -13,19 +13,18 @@
 .about-container {
     display: flex;
     flex-direction: row;
-    align-items: stretch; /* Asegura que los elementos hijos tengan la misma altura */
-    /* border: 1px solid black; */
-    height: auto; /* Se ajusta según el contenido */
+    align-items: stretch;
+    height: auto;
 }
 
 .about-div {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra verticalmente el texto */
-    width: 50%; /* Ocupa la mitad del ancho */
+    justify-content: center;
+    width: 50%;
     padding: 20px;
     box-sizing: border-box;
-    text-align: justify; /* Justifica el texto */
+    text-align: justify;
     height: 100%;
 }
 
@@ -43,27 +42,26 @@
     aspect-ratio: 1; 
 } 
 
-/* === ADAPTACIÓN A MOBILE === */
 @media (max-width: 768px) {
     .about {
-        font-size: 18px; /* Reduce el tamaño del texto */
-        margin: 5% 5%; /* Reduce el margen */
+        font-size: 18px; 
+        margin: 5% 5%; 
         text-align: center;
     }
 
     .about-h2 {
-        font-size: 32px; /* Reduce el tamaño del título */
+        font-size: 32px;
         margin: 5% 0;
     }
 
     .about-container {
-        flex-direction: column; /* Apila los elementos en columnas */
+        flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
     .about-div {
-        width: 90%; /* Ocupa casi todo el ancho */
+        width: 90%;
         padding: 10px;
     }
 
@@ -79,7 +77,7 @@
     }
 }
 
-/* Pantallas más pequeñas (480px) */
+
 @media (max-width: 480px) {
     .about {
         font-size: 16px;

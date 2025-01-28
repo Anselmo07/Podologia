@@ -5,24 +5,21 @@
     top: 0;
     z-index: 1000;
     display: flex;
-    justify-content: space-between; /* Distribuye los elementos */
+    justify-content: space-between; 
     align-items: center;
     padding: 10px 20px;
 }
 
-/* Contenedor del logo */
 .imgNavbar img {
     width: 50px;
     height: auto;
 }
 
-/* Contenedor del menú */
 .NavBar .container {
     display: flex;
     align-items: center;
 }
 
-/* Lista de navegación en desktop */
 .NavBar ul {
     display: flex;
     list-style: none;
@@ -44,24 +41,22 @@
     color: whitesmoke;
 }
 
-/* === ADAPTACIÓN A MOBILE === */
+
 @media (max-width: 768px) {
     .NavBar {
         position: relative;
     }
 
-    /* Menú hamburguesa */
     .menu-toggle {
-        display: block; /* Solo en móvil */
+        display: block; 
         font-size: 30px;
         color: white;
         cursor: pointer;
         position: absolute;
-        right: 20px; /* Lo alinea a la derecha */
+        right: 20px; 
         top: 15px;
     }
 
-    /* Oculta el menú por defecto */
     .NavBar ul {
         display: none;
         flex-direction: column;
@@ -74,7 +69,7 @@
         padding: 10px 0;
     }
 
-    /* Muestra el menú cuando esté activo */
+    
     .NavBar ul.active {
         display: flex;
     }
@@ -84,7 +79,7 @@
     }
 }
 
-/* Pantallas más pequeñas (480px) */
+
 @media (max-width: 480px) {
     .imgNavbar img {
         width: 40px;
@@ -97,6 +92,6 @@
 
 @media (min-width: 769px) {
     .menu-toggle {
-        display: none; /* Oculta el icono en pantallas grandes */
+        display: none;
     }
 }
