@@ -22,8 +22,16 @@
     font-size: 22px;
 }
 
+.card-contact li{
+    margin: 0.8%;
+}
+
+.card-contact .ubicacion{
+    height: 2.4rem;
+}
+
 .card-contact img {
-    height: 2rem;
+    height: 1.7rem;
     width: auto;
 }
 

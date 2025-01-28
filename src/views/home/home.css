@@ -36,7 +36,7 @@ h1 {
 }
 
 .section-home h2 {
-    margin-top: 20px;
+    margin-top: 1%;
     color: rgb(34, 82, 185);
     font-size: 48px;
 }
@@ -118,7 +118,7 @@ h2 {
 
 @media (max-width: 768px) {
     .section-home {
-        margin-top: 20%;
+        margin-top: 4%;
     }
 
     h1 {

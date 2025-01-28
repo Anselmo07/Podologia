@@ -1,0 +1,22 @@
+.footer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 1% 0 0 0;
+    width: 100%;
+    background-color: #131313;
+}
+
+.cotainer{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin: 10px 70px;
+    padding: 13px;
+}
+
+.footer p{
+    color: white;
+    text-align: center;
+}
