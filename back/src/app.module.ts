@@ -1,0 +1,15 @@
+import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { ImagesModule } from './images/images.module';
+import { ConfigModule } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
+
+@Module({
+  imports: [ConfigModule.forRoot(),  // Asegúrate de cargar las variables de entorno
+    MongooseModule.forRoot(process.env.API_URL || ''),  // Usa la variable de entorno aquí
+    ImagesModule,],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}

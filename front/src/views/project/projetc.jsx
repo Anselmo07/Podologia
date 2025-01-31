@@ -1,6 +1,6 @@
-import { useState } from "react";
-import axios from 'axios';
-import sha1 from 'js-sha1'; // Importamos la librería sha1
+import { useState, useEffect } from "react";
+import axios from "axios";
+import sha1 from "js-sha1"; // Importamos la librería sha1
 import "./project.css";
 
 const Project = () => {
@@ -13,6 +13,20 @@ const Project = () => {
     const API_SECRET = import.meta.env.VITE_CLOUDINARY_API_SECRET;
     return sha1(`timestamp=${timestamp}${API_SECRET}`);
   };
+
+  // Obtener las imágenes desde el backend
+  const fetchImages = async () => {
+    try {
+      const res = await axios.get("http://localhost:3000/images");
+      setImages(res.data);  // Establecemos las imágenes obtenidas del backend
+    } catch (error) {
+      console.error("Error al obtener las imágenes", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchImages(); // Llamar a la función cuando se cargue el componente
+  }, []);
 
   const uploadImage = async (e) => {
     const file = e.target.files[0]; // Obtiene el archivo seleccionado
@@ -36,6 +50,13 @@ const Project = () => {
         formData
       );
 
+      // Guardar la imagen en el backend
+      await axios.post("http://localhost:3000/images", {
+        url: res.data.secure_url,
+        title,  // Enviar el título junto con la URL de la imagen
+      });
+
+      // Actualizar las imágenes en el estado (después de haber subido la imagen)
       setImages([...images, { title, url: res.data.secure_url }]);
       setTitle("");
     } catch (error) {
@@ -43,9 +64,6 @@ const Project = () => {
     } finally {
       setLoading(false);
     }
-
-    const get = await axios.get(`https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`)
-    return get;
   };
 
   return (
@@ -79,8 +97,3 @@ const Project = () => {
 };
 
 export default Project;
-
-
-
-
-
