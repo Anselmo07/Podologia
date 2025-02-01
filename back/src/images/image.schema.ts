@@ -1,15 +1,19 @@
 import { Schema, Document } from 'mongoose';
 
-// Definir el esquema con el decorador @Schema() si es necesario.
-import { Prop, Schema as SchemaDecorator, SchemaFactory } from '@nestjs/mongoose';
+export const ImageSchema = new Schema(
+  {
+    title: { type: String, required: true },
+    beforeUrl: { type: String, required: true },
+    afterUrl: { type: String, required: true },
+  },
+  { timestamps: true }
+);
 
-// Usar decoradores de NestJS para definir la estructura
-@SchemaDecorator()
-export class Image extends Document {
-  @Prop({ required: true })
-  url: string;
+export interface Image extends Document {
+  title: string;
+  beforeUrl: string;
+  afterUrl: string;
 }
 
-// Crear el esquema a partir de la clase decorada
-export const ImageSchema = SchemaFactory.createForClass(Image);
+
 
