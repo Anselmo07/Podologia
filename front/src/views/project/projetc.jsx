@@ -5,6 +5,8 @@ import "./project.css";
 
 const Project = () => {
   const [images, setImages] = useState([]);
+  const [beforeImage, setBeforeImage] = useState(null);
+  const [afterImage, setAfterImage] = useState(null);
   const [title, setTitle] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -28,67 +30,114 @@ const Project = () => {
     fetchImages(); // Llamar a la función cuando se cargue el componente
   }, []);
 
-  const uploadImage = async (e) => {
-    const file = e.target.files[0]; // Obtiene el archivo seleccionado
-    if (!file) return;
+  const uploadImage = async () => {
+    if (!beforeImage || !afterImage) return; // Verificamos si las dos imágenes están seleccionadas
 
     setLoading(true);
 
-    // Generamos el timestamp y la firma
-    const timestamp = Math.floor(Date.now() / 1000); // Timestamp actual
+    // Generamos el timestamp y la firma para Cloudinary
+    const timestamp = Math.floor(Date.now() / 1000);
     const signature = generateSignature(timestamp);
 
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("api_key", import.meta.env.VITE_CLOUDINARY_API_KEY);
-    formData.append("timestamp", timestamp);
-    formData.append("signature", signature);
-
+    // Subimos las imágenes
     try {
-      const res = await axios.post(
+      const formDataBefore = new FormData();
+      formDataBefore.append("file", beforeImage);
+      formDataBefore.append("api_key", import.meta.env.VITE_CLOUDINARY_API_KEY);
+      formDataBefore.append("timestamp", timestamp);
+      formDataBefore.append("signature", signature);
+
+      const formDataAfter = new FormData();
+      formDataAfter.append("file", afterImage);
+      formDataAfter.append("api_key", import.meta.env.VITE_CLOUDINARY_API_KEY);
+      formDataAfter.append("timestamp", timestamp);
+      formDataAfter.append("signature", signature);
+
+      // Subir imagen "antes"
+      const resBefore = await axios.post(
         `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`,
-        formData
+        formDataBefore
       );
 
-      // Guardar la imagen en el backend
+      // Subir imagen "después"
+      const resAfter = await axios.post(
+        `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`,
+        formDataAfter
+      );
+
+      // Guardar ambas imágenes en el backend
       await axios.post("http://localhost:3000/images", {
-        url: res.data.secure_url,
-        title,  // Enviar el título junto con la URL de la imagen
+        beforeUrl: resBefore.data.secure_url,
+        afterUrl: resAfter.data.secure_url,
+        title,  // Enviar el título junto con las URLs de las imágenes
       });
 
-      // Actualizar las imágenes en el estado (después de haber subido la imagen)
-      setImages([...images, { title, url: res.data.secure_url }]);
+      // Actualizar las imágenes en el estado
+      setImages([...images, { title, beforeUrl: resBefore.data.secure_url, afterUrl: resAfter.data.secure_url }]);
+      setBeforeImage(null);
+      setAfterImage(null);
       setTitle("");
     } catch (error) {
-      console.error("Error al subir la imagen", error);
+      console.error("Error al subir las imágenes", error);
     } finally {
       setLoading(false);
     }
   };
 
+  // Función para eliminar la imagen
+  const handleDelete = async (title) => {
+    try {
+      await axios.delete(`http://localhost:3000/images/${title}`);
+      setImages(images.filter(image => image.title !== title));
+    } catch (error) {
+      console.error("Error al eliminar la imagen", error);
+    }
+  };
+
   return (
     <div className="proyectos-container">
-      <h2>Proyectos: Antes y Después</h2>
+      <h2>Pacientes</h2>
 
-      <input
+      <input className="title"
         type="text"
         placeholder="Título del proyecto"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <input
-        type="file"
-        onChange={uploadImage}
-        accept="image/*"
-        disabled={loading}
-      />
-      {loading && <p>Subiendo imagen...</p>}
+      <div className="file-inputs">
+        <input
+          type="file"
+          onChange={(e) => setBeforeImage(e.target.files[0])}
+          accept="image/*"
+          disabled={loading}
+        />
+        <input
+          type="file"
+          onChange={(e) => setAfterImage(e.target.files[0])}
+          accept="image/*"
+          disabled={loading}
+        />
+      </div>
+      <button onClick={uploadImage} disabled={loading} className="subir">
+        Subir Imágenes
+      </button>
+      {loading && <p>Subiendo imágenes...</p>}
 
       <div className="galeria">
         {images.map((img, index) => (
           <div key={index} className="proyecto">
             <h3>{img.title}</h3>
-            <img src={img.url} alt={img.title} />
+            <div className="before-after">
+              <div>
+                <h4>Antes</h4>
+                <img src={img.beforeUrl} alt="Antes" />
+              </div>
+              <div>
+                <h4>Después</h4>
+                <img src={img.afterUrl} alt="Después" />
+              </div>
+            </div>
+            <button onClick={() => handleDelete(img.title)} className="delete">X</button> {/* Botón para eliminar la imagen */}
           </div>
         ))}
       </div>
