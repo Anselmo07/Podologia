@@ -14,7 +14,7 @@
   display: flex;
   justify-content: space-around;
   margin: 2%;
-  flex-wrap: wrap; /* Permite que los inputs se ajusten en pantallas pequeñas */
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -24,7 +24,7 @@
   flex-wrap: wrap;
   border: 1px solid black;
   justify-content: center;
-  gap: 20px; /* Espaciado entre los elementos */
+  gap: 20px;
 }
 
 .proyecto {
@@ -34,15 +34,15 @@
   border: 1px solid #ccc;
   border-radius: 15px;
   text-align: center;
-  width: 90%; /* Ajustamos el tamaño para que se vea bien */
-  max-width: 400px; /* Evitamos que se expanda demasiado */
+  width: 90%; 
+  max-width: 400px; 
 }
 
 .before-after {
   display: flex;
   gap: 20px;
   justify-content: center;
-  flex-wrap: wrap; /* Permite que se apilen en pantallas pequeñas */
+  flex-wrap: wrap; 
 }
 
 .before-after div {
@@ -54,7 +54,7 @@
 .before-after img {
   width: 100%;
   max-width: 300px;
-  height: auto; /* Mantiene la proporción */
+  height: auto;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -91,15 +91,15 @@
   background-color: darkred;
 }
 
-/* Responsividad */
+
 @media (max-width: 768px) {
   .before-after {
-    flex-direction: column; /* Apilar imágenes en pantallas pequeñas */
+    flex-direction: column; 
     align-items: center;
   }
 
   .proyecto {
-    width: 100%; /* Ocupar todo el ancho */
+    width: 100%;
     max-width: none;
   }
 

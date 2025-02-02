@@ -10,36 +10,32 @@ const Project = () => {
   const [title, setTitle] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Función para generar la firma utilizando js-sha1
   const generateSignature = (timestamp) => {
     const API_SECRET = import.meta.env.VITE_CLOUDINARY_API_SECRET;
     return sha1(`timestamp=${timestamp}${API_SECRET}`);
   };
 
-  // Obtener las imágenes desde el backend
   const fetchImages = async () => {
     try {
       const res = await axios.get("http://localhost:3000/images");
-      setImages(res.data);  // Establecemos las imágenes obtenidas del backend
+      setImages(res.data);
     } catch (error) {
       console.error("Error al obtener las imágenes", error);
     }
   };
 
   useEffect(() => {
-    fetchImages(); // Llamar a la función cuando se cargue el componente
+    fetchImages();
   }, []);
 
   const uploadImage = async () => {
-    if (!beforeImage || !afterImage) return; // Verificamos si las dos imágenes están seleccionadas
+    if (!beforeImage || !afterImage) return;
 
     setLoading(true);
-
-    // Generamos el timestamp y la firma para Cloudinary
+    
     const timestamp = Math.floor(Date.now() / 1000);
     const signature = generateSignature(timestamp);
 
-    // Subimos las imágenes
     try {
       const formDataBefore = new FormData();
       formDataBefore.append("file", beforeImage);
@@ -53,26 +49,22 @@ const Project = () => {
       formDataAfter.append("timestamp", timestamp);
       formDataAfter.append("signature", signature);
 
-      // Subir imagen "antes"
       const resBefore = await axios.post(
         `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`,
         formDataBefore
       );
 
-      // Subir imagen "después"
       const resAfter = await axios.post(
         `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`,
         formDataAfter
       );
 
-      // Guardar ambas imágenes en el backend
       await axios.post("http://localhost:3000/images", {
         beforeUrl: resBefore.data.secure_url,
         afterUrl: resAfter.data.secure_url,
-        title,  // Enviar el título junto con las URLs de las imágenes
+        title, 
       });
 
-      // Actualizar las imágenes en el estado
       setImages([...images, { title, beforeUrl: resBefore.data.secure_url, afterUrl: resAfter.data.secure_url }]);
       setBeforeImage(null);
       setAfterImage(null);
@@ -84,7 +76,6 @@ const Project = () => {
     }
   };
 
-  // Función para eliminar la imagen
   const handleDelete = async (title) => {
     try {
       await axios.delete(`http://localhost:3000/images/${title}`);
@@ -137,7 +128,7 @@ const Project = () => {
                 <img src={img.afterUrl} alt="Después" />
               </div>
             </div>
-            <button onClick={() => handleDelete(img.title)} className="delete">X</button> {/* Botón para eliminar la imagen */}
+            <button onClick={() => handleDelete(img.title)} className="delete">X</button>
           </div>
         ))}
       </div>

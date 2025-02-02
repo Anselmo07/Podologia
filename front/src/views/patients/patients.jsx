@@ -5,7 +5,6 @@ import "./patients.css";
 const Patients = () => {
   const [images, setImages] = useState([]);
 
-  // Obtener las imágenes desde el backend
   const fetchImages = async () => {
     try {
       const res = await axios.get("http://localhost:3000/images");
@@ -20,7 +19,7 @@ const Patients = () => {
   }, []);
 
   return (
-    <div className="pacientes-container">
+    <div className="pacientes-container" id="patients">
       <h2>Pacientes</h2>
 
       <div className="galeria">
