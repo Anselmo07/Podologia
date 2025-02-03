@@ -28,9 +28,8 @@ function App() {
       }
     };
 
-    checkAuthStatus(); // Verifica al montar el componente
+    checkAuthStatus();
 
-    // Detecta cambios en localStorage en tiempo real
     window.addEventListener("storage", checkAuthStatus);
     return () => window.removeEventListener("storage", checkAuthStatus);
   }, []);

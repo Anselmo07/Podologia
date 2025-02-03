@@ -18,7 +18,13 @@ const NavBar = ({ isAuthenticated, setIsAuthenticated, setIsAdmin }) => {
     return (
         <nav className="NavBar">
             <div className="imgNavbar">
-                <img src={pie} alt="Logos" />
+                {!isAuthenticated ? (
+                    <Link to="/login">
+                        <img src={pie} alt="Logos" className="login-image" />
+                    </Link>
+                ) : (
+                    <img src={pie} alt="Logos" />
+                )}
             </div>
 
             <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
@@ -32,15 +38,14 @@ const NavBar = ({ isAuthenticated, setIsAuthenticated, setIsAdmin }) => {
                     <li><a href="#patients">PACIENTES</a></li>
                     <li><a href="#contact">CONTACTO</a></li>
 
-                    {!isAuthenticated ? (
-                        <li><Link to="/login">INICIAR SESIÓN</Link></li>
-                    ) : (
+                    {isAuthenticated && (
                         <li><button onClick={handleLogout}>CERRAR SESIÓN</button></li>
                     )}
-                </ul>
+                </ul>    
             </div>
         </nav>
     );
 };
 
 export default NavBar;
+

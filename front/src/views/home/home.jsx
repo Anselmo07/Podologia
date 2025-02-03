@@ -5,7 +5,7 @@ import home0 from "../../assets/home0.jpg"
 
 const Home = () => {
     return (
-        <div >
+        <div className="containerHome">
             <div className="container-home" id="home">
             <h1> PODOLOGÍA CLINICA</h1>
             <img src={home0} alt="home0" className="imagenPo" />

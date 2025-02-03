@@ -1,13 +1,15 @@
 .NavBar {
     width: 100%;
-    background-color: rgb(34, 82, 185);
-    position: sticky;
+    background-color: rgba(34, 82, 185, 0.9);
+    position: fixed;
     top: 0;
+    left: 0;
     z-index: 1000;
     display: flex;
     justify-content: space-between; 
     align-items: center;
     padding: 10px 20px;
+    backdrop-filter: blur(10px); 
 }
 
 .imgNavbar img {
