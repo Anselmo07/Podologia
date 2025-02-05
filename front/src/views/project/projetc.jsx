@@ -14,8 +14,11 @@ const Project = () => {
 
   const generateSignature = (timestamp) => {
     const API_SECRET = import.meta.env.VITE_CLOUDINARY_API_SECRET;
-    return sha1(`timestamp=${timestamp}${API_SECRET}`);
+    const signatureString = `timestamp=${timestamp}${API_SECRET}`;
+    console.log("Generando firma con:", signatureString); // Log de la cadena que se firma
+    return sha1(signatureString);
   };
+  
 
   const fetchImages = async () => {
     try {
