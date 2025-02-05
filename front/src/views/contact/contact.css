@@ -1,7 +1,7 @@
 
 .containerContact{
     padding: 2.2% 1%;
-    background-image: url('./../../assets/pasto.jpg');
+    background-image: url('https://i.pinimg.com/736x/8a/a2/99/8aa2992323b97ed8bab67ced80b63a97.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -47,7 +47,7 @@
 @media (max-width: 480px) {
 
     .card-contact {
-        margin: 5% 5%;
+        margin: 5% 15% 5% 15%;
         font-size: 16px;
         padding: 15px;
     }

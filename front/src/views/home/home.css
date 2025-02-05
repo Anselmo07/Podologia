@@ -11,6 +11,7 @@
 }
 
 .imagenPo {
+    
     width: 100%;
     height: calc(100vh - 60px);
     object-fit: cover;
@@ -150,6 +151,10 @@ h1 {
 }
 
 @media (max-width: 480px) {
+    .container-home img{
+        background-image: url('https://i.pinimg.com/736x/f3/e1/66/f3e166761aa762addf945f70a9077245.jpg');
+    }
+    
     h1 {
         font-size: 20px;
     }
