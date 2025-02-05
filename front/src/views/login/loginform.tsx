@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import "./login.css"
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 const LoginForm = ({ setIsAuthenticated, setIsAdmin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,7 +16,7 @@ const LoginForm = ({ setIsAuthenticated, setIsAdmin }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3000/users/login", { email, password });
+      const response = await axios.post(`${API_URL}/users/login`, { email, password });
 
       if (response.data.message === "Inicio de sesión exitoso") {
         localStorage.setItem("userId", response.data.userId);
@@ -33,11 +37,11 @@ const LoginForm = ({ setIsAuthenticated, setIsAdmin }) => {
   };
 
   return (
-    <div>
+    <div className="login">
       <h2>Iniciar sesión</h2>
-      <form onSubmit={handleLogin}>
-        <div>
-          <label htmlFor="email">Correo electrónico</label>
+      <form onSubmit={handleLogin} className="loginContainer">
+        <div className="loginDiv">
+          <label htmlFor="email">Correo electrónico </label>
           <input
             type="email"
             id="email"
@@ -46,8 +50,8 @@ const LoginForm = ({ setIsAuthenticated, setIsAdmin }) => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="password">Contraseña</label>
+        <div className="loginDiv">
+          <label htmlFor="password">Contraseña </label>
           <input
             type="password"
             id="password"
@@ -56,7 +60,7 @@ const LoginForm = ({ setIsAuthenticated, setIsAdmin }) => {
             required
           />
         </div>
-        <button type="submit">Iniciar sesión</button>
+        <button type="submit" className="loginButton">Iniciar sesión</button>
       </form>
       {message && <p>{message}</p>}
     </div>
@@ -64,4 +68,3 @@ const LoginForm = ({ setIsAuthenticated, setIsAdmin }) => {
 };
 
 export default LoginForm;
-

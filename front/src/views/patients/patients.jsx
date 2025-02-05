@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./patients.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Patients = () => {
   const [images, setImages] = useState([]);
 
   const fetchImages = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/images");
+      const res = await axios.get(`${API_URL}/images`);
       setImages(res.data);
     } catch (error) {
       console.error("Error al obtener las imágenes", error);

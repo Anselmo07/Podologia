@@ -1,12 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL
+
 const AdminPanel = () => {
   const [email, setEmail] = useState("");
 
   const makeAdmin = async () => {
     try {
-      await axios.put("http://localhost:3000/users/make-admin", { email });
+      await axios.put(`${API_URL}/users/make-admin`, { email });
       alert("Usuario actualizado a administrador");
     } catch (error) {
       alert("Error al actualizar el usuario", error);

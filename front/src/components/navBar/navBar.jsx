@@ -48,4 +48,3 @@ const NavBar = ({ isAuthenticated, setIsAuthenticated, setIsAdmin }) => {
 };
 
 export default NavBar;
-

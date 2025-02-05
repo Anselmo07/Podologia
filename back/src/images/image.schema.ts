@@ -14,6 +14,3 @@ export interface Image extends Document {
   beforeUrl: string;
   afterUrl: string;
 }
-
-
-

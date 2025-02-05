@@ -1,7 +1,6 @@
 import { Controller, Get, Post, Body, Delete, Param } from '@nestjs/common';
 import { ImagesService } from './images.service';
 import { Image } from './image.schema';
-import { title } from 'process';
 
 @Controller('images')
 export class ImagesController {
@@ -22,4 +21,3 @@ export class ImagesController {
     return this.imagesService.deleteImg(title);
   }
 }
-

@@ -1,5 +1,6 @@
 import "./contact.css"
 import wsp from "../../assets/wsp.jpg"
+import adress from "../../assets/adress.png"
 
 const Contact = () => {
     return (
@@ -8,7 +9,7 @@ const Contact = () => {
             <h2 className="conctact-h2">CONTACTO</h2>
             <div className="card-contact">
             <ul>
-                <li><img src="https://st2.depositphotos.com/19702458/43146/v/950/depositphotos_431464874-stock-illustration-location-point-logo-template-vector.jpgg" alt="Ubicacion" className="ubicacion"/></li>
+                <li><img src={adress} alt="Ubicacion" className="ubicacion"/></li>
                 <li>👩🏻‍⚕️Podologia Clinica</li>
                 <li>🌎Ciudad de Paraná</li>
                 <li>📍Av. Francisco Ramirez 2117</li>
@@ -22,8 +23,6 @@ const Contact = () => {
             </ul>
         </div>
         </div>
-        
-        
     );
 };
 

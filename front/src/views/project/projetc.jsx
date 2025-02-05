@@ -3,6 +3,8 @@ import axios from "axios";
 import sha1 from "js-sha1"; // Importamos la librería sha1
 import "./project.css";
 
+const API_URL = import.meta.env.VITE_API_URL
+
 const Project = () => {
   const [images, setImages] = useState([]);
   const [beforeImage, setBeforeImage] = useState(null);
@@ -17,7 +19,7 @@ const Project = () => {
 
   const fetchImages = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/images");
+      const res = await axios.get(`${API_URL}/images`);
       setImages(res.data);
     } catch (error) {
       console.error("Error al obtener las imágenes", error);
@@ -59,7 +61,7 @@ const Project = () => {
         formDataAfter
       );
 
-      await axios.post("http://localhost:3000/images", {
+      await axios.post(`${API_URL}/images`, {
         beforeUrl: resBefore.data.secure_url,
         afterUrl: resAfter.data.secure_url,
         title, 
@@ -78,7 +80,7 @@ const Project = () => {
 
   const handleDelete = async (title) => {
     try {
-      await axios.delete(`http://localhost:3000/images/${title}`);
+      await axios.delete(`${API_URL}/images/${title}`);
       setImages(images.filter(image => image.title !== title));
     } catch (error) {
       console.error("Error al eliminar la imagen", error);

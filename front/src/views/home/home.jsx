@@ -8,25 +8,22 @@ import home1 from "../../assets/home1.jpg";
 import ejercicio from "../../assets/ejercicio.jpg";
 
 const Home = () => {
-    // Estado para manejar la imagen dinámica
     const [homeImage, setHomeImage] = useState(home1);
 
     useEffect(() => {
-        // Función para cambiar la imagen según el tamaño de la pantalla
+
         const updateImage = () => {
             if (window.innerWidth <= 480) {
-                setHomeImage(home0);  // Imagen para dispositivos móviles
+                setHomeImage(home0);
             } else {
-                setHomeImage(home1); // Imagen por defecto
+                setHomeImage(home1); 
             }
         };
 
-        updateImage(); // Ejecutar al inicio para definir la imagen correcta
+        updateImage();
 
-        // Escuchar cambios en el tamaño de la pantalla
         window.addEventListener("resize", updateImage);
 
-        // Cleanup al desmontar el componente
         return () => {
             window.removeEventListener("resize", updateImage);
         };
@@ -53,25 +50,25 @@ const Home = () => {
             <section className="section2">
                 <div className="cardContainer">
                     <div className="card">
-                        <img src={pie} className="card-img-top" alt="..." />
+                        <img src={pie} className="card-img-top" alt="pie" />
                         <div className="card-body">
                             <p className="card-text">Lávate tus pies con jabón neutro. ¡Sécalos muy bien!</p>
                         </div>
                     </div>
                     <div className="card">
-                        <img src={zapatilla} className="card-img-top" alt="..." />
+                        <img src={zapatilla} className="card-img-top" alt="tenis" />
                         <div className="card-body">
                             <p className="card-text">Usa calzado idóneo, cómodo y adecuado</p>
                         </div>
                     </div>
                     <div className="card">
-                        <img src={ejercicio} className="card-img-top" alt="..." />
+                        <img src={ejercicio} className="card-img-top" alt="ejercicio" />
                         <div className="card-body">
                             <p className="card-text">Realiza ejercicio físico de manera regular para activar la circulación sanguínea de los pies</p>
                         </div>
                     </div>
                     <div className="card cardImport">
-                        <img src={ambo} className="card-img-top" alt="..." />
+                        <img src={ambo} className="card-img-top" alt="ambo" />
                         <div className="card-body">
                             <p className="card-text">Acude regularmente al podólogo para hacer revisiones y recibir un cuidado</p>
                         </div>

@@ -1,0 +1,32 @@
+.login{
+    display:flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loginContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.loginDiv{
+    margin: 5px;
+    padding: 2px;
+    text-align: left;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.loginButton{
+    background-color: #66b4ec;
+    border: 1px solid  #66b4ec;
+    border-radius: 12px;
+    padding: 5px;
+}
