@@ -35,14 +35,6 @@ h1 {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    /* background-color: #f9f9f9; */
-    margin-top: 7%;
-}
-
-.section-home h2 {
-    margin-top: 1%;
-    color: rgb(34, 82, 185);
-    font-size: 48px;
 }
 
 .home-h2 {
@@ -50,125 +42,112 @@ h1 {
     flex-direction: row;
     margin-top: 10px;
     margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 
 .home-h2 p {
-    margin: 10px;
-    padding: 0 25px 20px 25px;
+    margin: 0 12% 0 12%;
     text-align: center;
-    font-size: 26px;
+    font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
-}
-
-.podology-image {
-    width: 100%;
-    height: 100%;
-    max-width: 500px;
-    display: block;
-}
-
-.home-h3 {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
-    text-align: start;
-    padding: 2rem;
-    margin: 20px 0 0 20%;
     border: 1px solid black;
     border-radius: 2rem 0 0 2rem;
-    /* background-color: rgb(67, 152, 201); */
+    background-color: #66b4ec;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
 }
 
-.home-h4 {
+.cardContainer{
     display: flex;
-    justify-content: start;
     flex-direction: row;
-    text-align: start;
-    padding: 2rem;
-    margin: 3% 20% 0 0;
-    border: 1px solid black;
-    border-radius: 0 2rem 2rem 0;
-    /* background-color: rgb(67, 152, 201); */
+    justify-content: space-between;
+    margin: 0 12% 0 12%;
 }
 
-h2 {
+.card{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid black;
+    margin: 2% ;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    font-size: 13px;
+    width: 100vh;
     text-align: center;
-    font-size: 2.5rem;
 }
 
-.home-h3 li {
-    font-size: 22px;
-    list-style: disc;
-    /* background-color: rgb(67, 152, 201); */
+.cardImport{
+    background-color: #66b4ec;
 }
 
-.home-h4 li {
-    font-size: 22px;
-    list-style: disc;
-    /* background-color: rgb(67, 152, 201); */
+.card img {
+    width: 100px;
+    height: 50px; 
+    object-fit: contain;
+    border-radius: 8px; 
+    margin-right:5%;
 }
 
-.home-h3 img, .home-h4 img {
-    margin-left: 4rem;
-    border: 1px solid black;
+.card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);
 }
 
-.divImg img {
-    margin-top: 3%;
-    height: 250px;
-    width: 100%;
-}
+/* @media (max-width: 1366px) {
+    .container-home {
+        padding: 0 40px; /* Un poco más de margen lateral */
+    /* }
 
-
-@media (max-width: 768px) {
-    .section-home {
-        margin-top: 4%;
+    h1 {
+        font-size: 28px;
     }
 
+    .home-h2 p {
+        font-size: 15px;
+        margin: 0 8%;
+    }
+
+    .cardContainer {
+        justify-content: space-evenly; /* Acomoda mejor las tarjetas */
+        /* gap: 15px;
+        margin: 0 30% 0 8%;
+    }
+
+    .card {
+        width: 200px;
+        padding: 15px;
+    }
+
+    .card img {
+        width: 90px;
+        height: 45px;
+    }
+/* } */
+
+
+/* Media Queries */
+@media (max-width: 768px) {
     h1 {
         font-size: 24px;
     }
 
-    .home-h2 {
-        flex-direction: column;
-        margin-bottom: 15px;
-    }
-
     .home-h2 p {
-        font-size: 22px;
-        padding: 0 10px;
+        margin: 0 5%;
+        font-size: 14px;
     }
 
-    
-    .home-h3, .home-h4 {
+    .cardContainer {
         flex-direction: column;
-        margin: 20px 0;
-        padding: 1rem;
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        /* background-color: white; */
-        border: none;
+        align-items: center;
     }
 
-    .home-h3 li, .home-h4 li {
-        font-size: 16px;
-        margin-left: 5%;
-        /* background-color: white; */
-    }
-
-    .home-h3 img, .home-h4 img {
-        margin-left: 0;
-        margin-top: 15px;
-        width: 100%;
-    }
-
-    .divImg img {
-        height: auto;
-        width: 100%;
+    .card {
+        width: 90%;
     }
 }
-
 
 @media (max-width: 480px) {
     h1 {
@@ -176,15 +155,17 @@ h2 {
     }
 
     .home-h2 p {
-        font-size: 18px;
+        font-size: 12px;
+        padding: 10px;
     }
 
-    .home-h3 li, .home-h4 li {
-        font-size: 16px;
+    .card img {
+        width: 60px;
+        height: 40px;
     }
 
-    .home-h3, .home-h4 {
-        padding: 1rem;
-        margin: 10px 0;
+    .card {
+        width: 100%;
+        margin: 5px;
     }
 }

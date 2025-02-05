@@ -20,7 +20,7 @@ const Patients = () => {
 
   return (
     <div className="pacientes-container" id="patients">
-      <h2>Pacientes</h2>
+      <h2>PACIENTES</h2>
 
       <div className="galeria">
         {images.map((img, index) => (

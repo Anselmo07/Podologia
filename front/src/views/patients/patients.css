@@ -4,10 +4,11 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-image: url('https://nutricionistasmnes.org.ar/wp-content/uploads/2020/05/consultorio.jpg');
+  /* background-image: url('https://nutricionistasmnes.org.ar/wp-content/uploads/2020/05/consultorio.jpg'); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  margin-top: 30px ;
   padding-bottom:5% ;
   border-bottom: 1px solid black;
 }

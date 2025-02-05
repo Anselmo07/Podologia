@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    padding: 10px 20px;
+    padding: 7.4px 20px;
     backdrop-filter: blur(10px); 
 }
 
@@ -35,7 +35,7 @@
 
 .NavBar li a {
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     text-decoration: none;
 }
 
